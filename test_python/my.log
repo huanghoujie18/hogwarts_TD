@@ -1,0 +1,15 @@
+2020-01-12 11:20:43,845 - DEBUG - This is a debug log.
+2020-01-12 11:20:43,845 - INFO - This is a info log.
+2020-01-12 11:20:43,845 - WARNING - This is a warning log.
+2020-01-12 11:20:43,845 - ERROR - This is a error log.
+2020-01-12 11:20:43,846 - CRITICAL - This is a critical log.
+01/12/2020 11:21:46 AM - DEBUG - This is a debug log.
+01/12/2020 11:21:46 AM - INFO - This is a info log.
+01/12/2020 11:21:46 AM - WARNING - This is a warning log.
+01/12/2020 11:21:46 AM - ERROR - This is a error log.
+01/12/2020 11:21:46 AM - CRITICAL - This is a critical log.
+01/12/2020 11:28:02 AM - DEBUG - This is a debug log.
+01/12/2020 11:28:02 AM - INFO - This is a info log.
+01/12/2020 11:28:02 AM - WARNING - This is a warning log.
+01/12/2020 11:28:02 AM - ERROR - This is a error log.
+01/12/2020 11:28:02 AM - CRITICAL - This is a critical log.

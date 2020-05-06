@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="5" hostname="DESKTOP-U2PNPD2" name="pytest" skipped="0" tests="16" time="0.249" timestamp="2019-12-25T23:11:50.463039"><testcase classname="unit.test_demo" file="unit\test_demo.py" line="4" name="test_answer" time="0.003"><failure message="assert 4 == 5
+ +  where 4 = inc(3)">def test_answer():
+&gt;       assert inc(3) == 5
+E       assert 4 == 5
+E        +  where 4 = inc(3)
+
+unit\test_demo.py:6: AssertionError</failure></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="4" name="test_div_int[4-2-2]" time="0.003"></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="4" name="test_div_int[100000000-1-100000000]" time="0.002"></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="4" name="test_div_int[0-3-0]" time="0.005"></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="4" name="test_div_int[-9--9-1]" time="0.003"></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="4" name="test_div_int[-1-2--0.5]" time="0.003"></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="4" name="test_div_int[2--1--2]" time="0.003"></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="4" name="test_div_int[1-2-0.5]" time="0.003"></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="16" name="test_div_float[0.4-2-0.2]" time="0.003"></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="16" name="test_div_float[10-0.1-100]" time="0.006"></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="16" name="test_div_float[100000000--2--50000000]" time="0.003"></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="16" name="test_div_float[-1.5-1--1.5]" time="0.002"></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="25" name="test_div_string[1-a-error]" time="0.007"><failure message="TypeError: unsupported operand type(s) for /: &apos;int&apos; and &apos;str&apos;">num1 = 1, num2 = &apos;a&apos;, expection = &apos;error&apos;
+
+    @pytest.mark.parametrize(&quot;num1,num2,expection&quot;, [
+        (1, &quot;a&quot;, &quot;error&quot;),
+        (&quot;a&quot;, 2, &quot;error&quot;),
+        (&quot;a&quot;, &quot;b&quot;, &quot;error&quot;),
+    
+    ])
+    def test_div_string(num1,num2,expection):
+&gt;       assert div(num1, num2) == expection
+
+unit\test_unit.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+a = 1, b = &apos;a&apos;
+
+    def div(a, b):
+&gt;       return a / b
+E       TypeError: unsupported operand type(s) for /: &apos;int&apos; and &apos;str&apos;
+
+unit\Div.py:2: TypeError</failure></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="25" name="test_div_string[a-2-error]" time="0.006"><failure message="TypeError: unsupported operand type(s) for /: &apos;str&apos; and &apos;int&apos;">num1 = &apos;a&apos;, num2 = 2, expection = &apos;error&apos;
+
+    @pytest.mark.parametrize(&quot;num1,num2,expection&quot;, [
+        (1, &quot;a&quot;, &quot;error&quot;),
+        (&quot;a&quot;, 2, &quot;error&quot;),
+        (&quot;a&quot;, &quot;b&quot;, &quot;error&quot;),
+    
+    ])
+    def test_div_string(num1,num2,expection):
+&gt;       assert div(num1, num2) == expection
+
+unit\test_unit.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+a = &apos;a&apos;, b = 2
+
+    def div(a, b):
+&gt;       return a / b
+E       TypeError: unsupported operand type(s) for /: &apos;str&apos; and &apos;int&apos;
+
+unit\Div.py:2: TypeError</failure></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="25" name="test_div_string[a-b-error]" time="0.007"><failure message="TypeError: unsupported operand type(s) for /: &apos;str&apos; and &apos;str&apos;">num1 = &apos;a&apos;, num2 = &apos;b&apos;, expection = &apos;error&apos;
+
+    @pytest.mark.parametrize(&quot;num1,num2,expection&quot;, [
+        (1, &quot;a&quot;, &quot;error&quot;),
+        (&quot;a&quot;, 2, &quot;error&quot;),
+        (&quot;a&quot;, &quot;b&quot;, &quot;error&quot;),
+    
+    ])
+    def test_div_string(num1,num2,expection):
+&gt;       assert div(num1, num2) == expection
+
+unit\test_unit.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+a = &apos;a&apos;, b = &apos;b&apos;
+
+    def div(a, b):
+&gt;       return a / b
+E       TypeError: unsupported operand type(s) for /: &apos;str&apos; and &apos;str&apos;
+
+unit\Div.py:2: TypeError</failure></testcase><testcase classname="unit.test_unit" file="unit\test_unit.py" line="36" name="test_div_exception[1-0-ZeroDivisionError]" time="0.007"><failure message="ZeroDivisionError: division by zero">num1 = 1, num2 = 0, expection = &apos;ZeroDivisionError&apos;
+
+    @pytest.mark.parametrize(&quot;num1,num2,expection&quot;, [
+        (1, 0, &quot;ZeroDivisionError&quot;)
+    ])
+    def test_div_exception(num1, num2, expection):
+&gt;       assert div(num1, num2) == expection
+
+unit\test_unit.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+a = 1, b = 0
+
+    def div(a, b):
+&gt;       return a / b
+E       ZeroDivisionError: division by zero
+
+unit\Div.py:2: ZeroDivisionError</failure></testcase></testsuite></testsuites>

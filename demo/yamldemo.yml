@@ -1,0 +1,20 @@
+name: zhangsan
+age: 20
+isBoss: false
+
+#多行结构
+friends：
+ - zhangsan
+ - lisi
+ - wangwu
+
+#单行结构
+friend:[zhangsan,lisi,wangwu]
+
+#多行结构
+friend:
+ name:zhangsan
+ age:20
+
+#单行结构
+friend:{name:zhangsan,age:20}
