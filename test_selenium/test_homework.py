@@ -29,8 +29,7 @@ class TestHome():
         # self.driver.find_element(By.CSS_SELECTOR, '.js_has_member div:nth-child(1) .js_add_member').click()
 
         # 循环去点击“添加成员”按钮
-        WebDriverWait(self.driver, 10).until(
-            self.wait_element)  # 不是WebDriverWait(self.driver,10).until(self.wait_element())
+        WebDriverWait(self.driver, 10).until(self.wait_element)  # 不是WebDriverWait(self.driver,10).until(self.wait_element())
 
         '''
         while True:
