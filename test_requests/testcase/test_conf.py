@@ -7,3 +7,4 @@ def test_conf():
     print(url)
     r=requests.get(url=url)
     print(r.text)
+    assert 1==1

@@ -9,6 +9,7 @@ def test_get_excel_row():  #注意：测试用例与定义的的函数在同一
         print(r.status_code)
         print(r.text)
 
+
 # def test_dict():   #获取excel文件中字典格式的数据，如{'phone':15625172814,'password':'password123'}
 #     params=get_excel_row(4)[0]
 #     print(params)
@@ -25,5 +26,6 @@ def test_dict():
     r=requests.get(url=url,params=eval(get_dict(1)))
     print(r.status_code)
     print(r.text)
+
 
 
