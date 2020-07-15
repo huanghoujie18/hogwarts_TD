@@ -2,6 +2,7 @@ import pytest
 
 
 class TestMethod():
+    @pytest.mark.testa
     def test_a(self):
         print('-----test_a-----')
 
