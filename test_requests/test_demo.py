@@ -1,7 +1,12 @@
+import json
+
 import requests
 from requests import Session
 
 # 获取响应结果
+
+
+
 def test_requests():
     r = requests.get('https://www.baidu.com')
     print('\n')
@@ -85,3 +90,9 @@ def test_get_hook():
     print(r.json())
     print(r.demo)
     assert r.status_code==200
+
+def test_json():
+    r=requests.get('https://home.testing-studio.com/categories.json')
+    print(r.json())
+    print(json.dumps(r.json(), indent=2,ensure_ascii=False))  # r.json()是json对象，indent表示缩进，ensure_ascii设置编码
+
