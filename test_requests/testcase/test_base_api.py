@@ -7,6 +7,6 @@ class TestBaseApi():
         url =  'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
         corpid = 'ww0ff069f77ced0d7a'
         secret = 'oKPwlYZ2bMunvnI4q6ZDr94YYZc_a4OxH2KM3oEh82k'
-        params = {'corpid':corpid, 'corpsecret':secret}  # 注意：不用self.corpid
+        params = {'corpid':corpid, 'corpsecret':secret}     # 注意：不用self.corpid
         r = requests.get(url,params=params)
-        BaseApi.format(r)  # 调用base_api1的format方法
+        BaseApi.format(r)      # 调用base_api1的format方法

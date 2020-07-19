@@ -19,9 +19,9 @@ class Department:
         url='https://qyapi.weixin.qq.com/cgi-bin/department/create'
         data = {
             "name": "测试",
-            "name_en": "TS",
+            # "name_en": "TS",
             "parentid": 1,
-            "order": 2
+            # "order": 2
         }
         # 非必须项"id"，如果不填参数，请求时就不要带这个参数
         r = requests.post(url, params={'access_token': self.access_token},json=data)
