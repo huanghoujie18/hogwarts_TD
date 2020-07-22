@@ -14,17 +14,17 @@ class Member():
     def create(self, userid, name, email, department, **kwargs):
         url = 'https://qyapi.weixin.qq.com/cgi-bin/user/create'
         data = {'userid': userid, 'name': name, 'email': email, 'department': department}
-        data = data.update(kwargs)
+        data.update(kwargs)  # 不能用 data = data.update(kwargs)
         r = requests.post(url, params=self.params, json=data)
         return BaseApi.format(r)
 
-    def create_one(self):
+    def create_one(self,userid,name,email):
         url = 'https://qyapi.weixin.qq.com/cgi-bin/user/create'
         data = {
-            "userid": "test004",
-            "name": "测试四",
-            "department": [1, 2],    # todo 如何传入列表？
-            "email": "test004@sqmcdkjwwgc.onexmail.com",
+            "userid": userid,
+            "name": name,
+            "department": [1, 2],    # todo 如何传入参数？  *解包
+            "email": email+"@sqmcdkjwwgc.onexmail.com",   # 拼接字符串
             "is_leader_in_dept": [1, 0],
             "enable": 1,
             "main_department": 1
@@ -55,9 +55,9 @@ class Member():
         return r.json()
 
     # 批量删除成员
-    def batchdelete(self, userid):
+    def batchdelete(self, *userid):  # 星号（*）在形参中的作用是“打包”
         url = 'https://qyapi.weixin.qq.com/cgi-bin/user/batchdelete'
         #   请求体{"useridlist": ["zhangsan", "lisi"]}，成员UserID列表
-        data = {"useridlist": [userid]}  # 如何传入任意个参数？  *args是元组
+        data = {"useridlist": [*userid]}  # 星号（*）在实参中的作用是“解包”
         r = requests.post(url, params=self.params, json=data)
         return r.json()
