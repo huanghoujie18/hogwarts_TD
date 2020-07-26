@@ -4,7 +4,9 @@ from test_requests.api.member import Member
 
 
 class TestMember():
-    member = Member()  # todo 需要优化，不要每次调用方法都实例化，这个测试类只需要实例化一次就好了
+    @classmethod
+    def setup_class(cls):
+        cls.member = Member()  # todo 需要优化，不要每次调用方法都实例化，这个测试类只需要实例化一次就好了
 
     def test_create(self):
         r = self.member.create("test001", "传说", "zhangsan@gzdev.com",1)

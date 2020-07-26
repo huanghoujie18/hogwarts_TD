@@ -1,0 +1,13 @@
+create:
+  url: 123      # yaml文件需要有空格，不然报错：yaml.scanner.ScannerError: mapping values are not allowed here
+  params:
+    token: access_token
+  json:
+    name: demo1
+    id: id001
+
+
+#  url='https://qyapi.weixin.qq.com/cgi-bin/department/create'
+#  data = {'name':name,'parentid':id}  # name id是必填项，其他非必填项参数通过**kwargs接收
+#  data = data.update(kwargs)  # 如果kwargs有值，则更新data
+#  r=requests.post(url,params=self.params,json=data)  # 发送创建部门请求

@@ -1,0 +1,6 @@
+- create:
+  -
+    name: demo1
+    age: 30
+  -
+    token: accesstoekn
