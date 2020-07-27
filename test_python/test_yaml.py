@@ -5,6 +5,7 @@ def test_yaml():
     with open('../test_python/yaml_data.yaml',encoding='utf-8') as f:
         print("使用：encoding='utf-8'")
         print(yaml.safe_load(f))
+    # {'companies': [{'id': 1, 'name': 'company1', 'price': '200W'}, {'id': 2, 'name': 'company2', 'price': '500W'}]}
 
     # 以二进制格式打开一个文件用于只读
     with open('../test_python/yaml_data.yaml','rb') as f:
