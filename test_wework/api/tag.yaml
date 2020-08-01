@@ -1,0 +1,29 @@
+#获取标签列表
+get:
+  method: post
+  url: https://qyapi.weixin.qq.com/cgi-bin/tag/list
+  params:
+    access_token: ${access_token}
+  json:
+    tag_id: []
+
+add:
+  method: post
+  url: https://qyapi.weixin.qq.com/cgi-bin/tag/create
+  params:
+    access_token: ${access_token}
+  json:
+    groud_id: ${groud_id}
+    tag:
+      - name: ${name}
+
+delete:
+  method: post
+  url: https://qyapi.weixin.qq.com/cgi-bin/tag/delete
+  params:
+    access_token: ${access_token}
+  json:
+    groud_id: ${groud_id}
+    tag_id: ${tag_id}
+
+
