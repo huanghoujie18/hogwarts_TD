@@ -7,23 +7,33 @@ get:
   json:
     tag_id: []
 
+# 创建标签
 add:
   method: post
   url: https://qyapi.weixin.qq.com/cgi-bin/tag/create
   params:
     access_token: ${access_token}
   json:
-    groud_id: ${groud_id}
-    tag:
-      - name: ${name}
+    tagname: ${tagname}
 
+
+# 删除标签
 delete:
-  method: post
+  method: get
   url: https://qyapi.weixin.qq.com/cgi-bin/tag/delete
   params:
     access_token: ${access_token}
+    tagid: ${tagid}
+
+#更新标签名字
+update:
+  method: post
+  url: https://qyapi.weixin.qq.com/cgi-bin/tag/update
+  params:
+    access_token: ${access_token}
   json:
-    groud_id: ${groud_id}
-    tag_id: ${tag_id}
+    tagid: ${tagid}
+    tagname: ${tagname}
+
 
 

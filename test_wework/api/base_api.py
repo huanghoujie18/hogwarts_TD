@@ -1,6 +1,6 @@
 import json
 
-import jsonpath
+from jsonpath import jsonpath
 import requests
 import yaml
 
@@ -11,13 +11,14 @@ class BaseApi:
     # 传入yaml文件路径，加载yaml文件
     @staticmethod
     def yaml_load(path):
-        with open(path) as f:
+        with open(path,'rb') as f:
             return yaml.safe_load(f)
 
+    # jsonpath，从json数据中取值，path的json表达式，r是返回的数据
     def json_path(self,path,r=None):
         if r is None:
-            r=self.r
-         return jsonpath(r,path)
+            r=self.r.json()
+        return jsonpath(r,path)
 
     # 格式化打印方法
     @classmethod
@@ -44,5 +45,6 @@ class BaseApi:
             params=data['params'],
             json=data.get('json')  # 使用get方法，在json为空的时候也不会报错
         )
+        print(data)
         self.format(result)
         return result.json()  # 注意返回json，否则会报错：TypeError: 'Response' object is not subscriptable

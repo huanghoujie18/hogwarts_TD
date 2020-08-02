@@ -9,3 +9,4 @@ class TestClassmethod:
 
     def test_func2(self):
         A.func2() # 类方法可以直接调用
+
