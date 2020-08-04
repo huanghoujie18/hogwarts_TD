@@ -1,0 +1,24 @@
+{
+  "errcode": 0,
+  "errmsg": "ok",
+  "taglist": [
+    {
+      "tagid": 2,
+      "tagname": "修改后的标签名"
+    },
+    {
+      "tagid": 3,
+      "tagname": "test004"
+    },
+    {
+      "tagid": 4,
+      "tagname": "test005"
+    },
+    {
+      "tagid": 5,
+      "tagname": "test002"
+    }
+  ]
+}
+
+# todo 从中根据tagname取出tagid

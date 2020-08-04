@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="3" hostname="DESKTOP-U2PNPD2" name="pytest" skipped="0" tests="8" time="0.395" timestamp="2020-06-27T22:56:42.380939"><testcase classname="test_case.test_assert" file="common\get_mysql.py" line="20" name="test_get_sql" time="0.021"><failure message="pymysql.err.OperationalError: (1045, &quot;Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)&quot;)">def test_get_sql():
+&gt;       print(get_sql(&quot;SELECT dept_no FROM departments WHERE dept_name =&apos;Finance&apos;&quot;))
+
+..\common\get_mysql.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\common\get_mysql.py:6: in get_sql
+    db=pymysql.connect(host=host,user=user,database=database,port=port,charset=charset)
+..\venv\lib\site-packages\pymysql\__init__.py:94: in Connect
+    return Connection(*args, **kwargs)
+..\venv\lib\site-packages\pymysql\connections.py:325: in __init__
+    self.connect()
+..\venv\lib\site-packages\pymysql\connections.py:599: in connect
+    self._request_authentication()
+..\venv\lib\site-packages\pymysql\connections.py:861: in _request_authentication
+    auth_packet = self._read_packet()
+..\venv\lib\site-packages\pymysql\connections.py:684: in _read_packet
+    packet.check_error()
+..\venv\lib\site-packages\pymysql\protocol.py:220: in check_error
+    err.raise_mysql_exception(self._data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+data = b&quot;\xff\x15\x04#28000Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)&quot;
+
+    def raise_mysql_exception(data):
+        errno = struct.unpack(&apos;&lt;h&apos;, data[1:3])[0]
+        is_41 = data[3:4] == b&quot;#&quot;
+        if is_41:
+            # client protocol 4.1
+            errval = data[9:].decode(&apos;utf-8&apos;, &apos;replace&apos;)
+        else:
+            errval = data[3:].decode(&apos;utf-8&apos;, &apos;replace&apos;)
+        errorclass = error_map.get(errno, InternalError)
+&gt;       raise errorclass(errno, errval)
+E       pymysql.err.OperationalError: (1045, &quot;Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)&quot;)
+
+..\venv\lib\site-packages\pymysql\err.py:109: OperationalError</failure></testcase><testcase classname="test_case.test_assert" file="test_case\test_assert.py" line="4" name="test_assert" time="0.001"></testcase><testcase classname="test_case.test_assert" file="test_case\test_assert.py" line="9" name="test_assert_in" time="0.001"></testcase><testcase classname="test_case.test_assert" file="test_case\test_assert.py" line="15" name="test_assert_equl" time="0.002"></testcase><testcase classname="test_case.test_assert1" file="common\get_mysql.py" line="20" name="test_get_sql" time="0.015"><failure message="pymysql.err.OperationalError: (1045, &quot;Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)&quot;)">def test_get_sql():
+&gt;       print(get_sql(&quot;SELECT dept_no FROM departments WHERE dept_name =&apos;Finance&apos;&quot;))
+
+..\common\get_mysql.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\common\get_mysql.py:6: in get_sql
+    db=pymysql.connect(host=host,user=user,database=database,port=port,charset=charset)
+..\venv\lib\site-packages\pymysql\__init__.py:94: in Connect
+    return Connection(*args, **kwargs)
+..\venv\lib\site-packages\pymysql\connections.py:325: in __init__
+    self.connect()
+..\venv\lib\site-packages\pymysql\connections.py:599: in connect
+    self._request_authentication()
+..\venv\lib\site-packages\pymysql\connections.py:861: in _request_authentication
+    auth_packet = self._read_packet()
+..\venv\lib\site-packages\pymysql\connections.py:684: in _read_packet
+    packet.check_error()
+..\venv\lib\site-packages\pymysql\protocol.py:220: in check_error
+    err.raise_mysql_exception(self._data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+data = b&quot;\xff\x15\x04#28000Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)&quot;
+
+    def raise_mysql_exception(data):
+        errno = struct.unpack(&apos;&lt;h&apos;, data[1:3])[0]
+        is_41 = data[3:4] == b&quot;#&quot;
+        if is_41:
+            # client protocol 4.1
+            errval = data[9:].decode(&apos;utf-8&apos;, &apos;replace&apos;)
+        else:
+            errval = data[3:].decode(&apos;utf-8&apos;, &apos;replace&apos;)
+        errorclass = error_map.get(errno, InternalError)
+&gt;       raise errorclass(errno, errval)
+E       pymysql.err.OperationalError: (1045, &quot;Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)&quot;)
+
+..\venv\lib\site-packages\pymysql\err.py:109: OperationalError</failure></testcase><testcase classname="test_case.test_assert1" file="test_case\test_assert1.py" line="4" name="test_assert" time="0.001"><failure message="AssertionError: 断言失败打印的信息
+assert 0">def test_assert():
+&gt;       assert a,&apos;断言失败打印的信息&apos;  # 自定义断言失败打印的信息，用逗号隔开
+E       AssertionError: 断言失败打印的信息
+E       assert 0
+
+..\test_case\test_assert1.py:6: AssertionError</failure></testcase><testcase classname="test_case.test_assert1" file="test_case\test_assert1.py" line="9" name="test_assert_in" time="0.001"></testcase><testcase classname="test_case.test_assert1" file="test_case\test_assert1.py" line="15" name="test_assert_equl" time="0.001"></testcase></testsuite></testsuites>

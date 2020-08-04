@@ -6,7 +6,7 @@ from test_requests.api.member import Member
 class TestMember():
     @classmethod
     def setup_class(cls):
-        cls.member = Member()  # todo 需要优化，不要每次调用方法都实例化，这个测试类只需要实例化一次就好了
+        cls.member = Member()  # 不要每次调用方法都实例化，这个测试类只需要实例化一次就好了
 
     def test_create(self):
         r = self.member.create("test001", "传说", "zhangsan@gzdev.com",1)
@@ -14,7 +14,7 @@ class TestMember():
         # 错误说明:成员name参数不合法   API错误码:60112
 
     @pytest.mark.parametrize(('userid,name,email'),[('test001','test001','test001'),('test002','test002','test002')])
-    def test_create_one(self,userid,name,email):  #todo 参数化 值得好好思考
+    def test_create_one(self,userid,name,email):  # 参数化 值得好好思考
         r = self.member.create_one(userid,name,email)
         print(r)
 

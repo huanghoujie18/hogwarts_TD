@@ -17,8 +17,9 @@ class Tag(WeWork):
     # def add(self):
     #     self.send_api(self.tag_data['add'])
 
-    def add_tag(self,tagname=[]):
+    def add_tag(self,tagname=[],tagid=[]):
         self.params['tagname'] =tagname
+        self.params['tagid']=tagid
         self.send_api(self.tag_data['add'])
 
     def delete(self,tagid=[]):
