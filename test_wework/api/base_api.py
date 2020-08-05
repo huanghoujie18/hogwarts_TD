@@ -1,17 +1,16 @@
 import json
-
 from jsonpath import jsonpath
 import requests
 import yaml
 
 
 class BaseApi:
-    params = {}  # todo 这是空的，send_api怎么循环？其他地方调用send_api时，首先给其赋值
+    params = {}  # 这是空的，其他地方调用send_api时，首先给其赋值
 
     # 传入yaml文件路径，加载yaml文件
     @staticmethod
     def yaml_load(path):
-        with open(path,'rb') as f:
+        with open(path,'rb') as f:    # 加上'rb'，避免编码报错
             return yaml.safe_load(f)
 
     # jsonpath，从json数据中取值，path的json表达式，r是返回的数据
@@ -33,8 +32,8 @@ class BaseApi:
     def send_api(self, data: dict):
         # 将python对象转成yaml（理解为就是字符串）
         raw = yaml.dump(data)
-        # 进行替换，把key替换为value
-        for key, value in self.params.items():
+        # 逐一进行替换，把key替换为value
+        for key, value in self.params.items():   # params定义为类变量，继承BaseApi的类可以直接对其进行赋值
             raw = raw.replace(f'${{{key}}}', repr(value))
         # 反序列化
         data = yaml.load(raw)

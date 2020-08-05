@@ -21,4 +21,4 @@
   ]
 }
 
-# todo 从中根据tagname取出tagid
+# todo 从中根据tagname取出tagid，或者取出taglist的长度

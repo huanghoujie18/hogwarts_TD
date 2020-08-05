@@ -34,3 +34,6 @@ def test_yaml5():
         print("使用：encoding='utf-8'")
         print(yaml.safe_load(f))
         # [{'create': [{'name': 'demo1', 'age': 30}, {'token': 'accesstoekn'}]}]
+
+
+
