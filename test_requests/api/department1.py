@@ -2,7 +2,7 @@ import requests
 
 from test_requests.api.wework1 import WeWork
 from test_requests.api.base_api1 import BaseApi
-
+# 封装通讯录管理-部门管理
 class Department(WeWork):
     # 先获取token
     secret = 'oKPwlYZ2bMunvnI4q6ZDr94YYZc_a4OxH2KM3oEh82k'

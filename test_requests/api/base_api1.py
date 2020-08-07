@@ -7,7 +7,7 @@ from jsonpath import jsonpath
 class BaseApi():
     @classmethod  # 定义为类方法 ，无需实例化便可使用
     def format(cls,r):
-        print(json.dumps(r.json(), indent=2,ensure_ascii=False))
+        print(json.dumps(r.json(),indent=2,ensure_ascii=False))
 
     # jsonpath的封装，1.省掉每次import，2.省掉r
     @classmethod

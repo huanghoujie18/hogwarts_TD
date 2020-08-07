@@ -4,7 +4,7 @@ from test_requests.api.wework1 import WeWork
 from test_requests.api.base_api1 import BaseApi
 
 
-# 成员管理
+# 通讯录管理-成员管理
 class Member():
     # 先获取token，成员管理还是再通讯录管理下，跟部门管理需要的token一样
     secret = 'oKPwlYZ2bMunvnI4q6ZDr94YYZc_a4OxH2KM3oEh82k'
