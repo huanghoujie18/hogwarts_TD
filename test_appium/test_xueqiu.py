@@ -45,7 +45,7 @@ class TestXueqiu:
     def test_xpath(self):
         self.driver.find_element(MobileBy.ID,"tv_search").click()     # MobileBy继承By
         self.driver.find_element(MobileBy.ID,"search_input_text").send_keys("阿里巴巴")
-        self.driver.find_element(MobileBy.XPATH,"//*[@text='阿里巴巴']").click()
+        self.driver.find_element(MobileBy.XPATH,"//*[@text='阿里巴巴' and contains(@resource-id,'name')]").click()
         assert float(self.driver.find_element(MobileBy.ID, "current_price").text) > 250
 
 
