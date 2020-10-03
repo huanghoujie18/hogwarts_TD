@@ -48,6 +48,18 @@ class TestXueqiu:
         self.driver.find_element(MobileBy.XPATH,"//*[@text='阿里巴巴' and contains(@resource-id,'name')]").click()
         assert float(self.driver.find_element(MobileBy.ID, "current_price").text) > 250
 
+    # 把一个股票加入到自选后，判断其加入了自选
+    def test_chooses_stocks(self):
+        self.driver.find_element(MobileBy.ID,"tv_search").click()     # MobileBy继承By
+        self.driver.find_element(MobileBy.ID,"search_input_text").send_keys("阿里巴巴")
+        self.driver.find_element(MobileBy.XPATH,"//*[@text='阿里巴巴' and contains(@resource-id,'name')]").click()
+        self.driver.find_element(MobileBy.XPATH,"//*[contains(@resource-id,'follow_btn')]").click()
+        # 如果出现评价弹窗，弹窗是不是需要切换窗口？
+        # self.driver.find_element(MobileBy.XPATH,"//*[contains(@resource-id,'tv_left')]").click()
+        assert self.driver.find_element(MobileBy.XPATH, "//*[contains(@resource-id,'followed_btn')]").text=="已添加"
+        # 点击“已添加”，断言取消了添加
+        self.driver.find_element(MobileBy.XPATH,"//*[contains(@resource-id,'followed_btn')]").click()
+        assert self.driver.find_element(MobileBy.XPATH,"//*[contains(@resource-id,'follow_btn')]").text=="加自选"
 
     def teardown(self):
         self.driver.quit()
