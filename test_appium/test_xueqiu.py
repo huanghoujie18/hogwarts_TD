@@ -1,6 +1,7 @@
 
 from appium import webdriver
 from appium.webdriver.common.mobileby import MobileBy
+from appium.webdriver.common.touch_action import TouchAction
 
 
 class TestXueqiu:
@@ -56,10 +57,25 @@ class TestXueqiu:
         self.driver.find_element(MobileBy.XPATH,"//*[contains(@resource-id,'follow_btn')]").click()
         # 如果出现评价弹窗，弹窗是不是需要切换窗口？
         # self.driver.find_element(MobileBy.XPATH,"//*[contains(@resource-id,'tv_left')]").click()
+        # 获取text
+        print(
+            self.driver.find_element(MobileBy.XPATH, "//*[contains(@resource-id,'followed_btn')]").get_attribute('text'))
         assert self.driver.find_element(MobileBy.XPATH, "//*[contains(@resource-id,'followed_btn')]").text=="已添加"
         # 点击“已添加”，断言取消了添加
         self.driver.find_element(MobileBy.XPATH,"//*[contains(@resource-id,'followed_btn')]").click()
         assert self.driver.find_element(MobileBy.XPATH,"//*[contains(@resource-id,'follow_btn')]").text=="加自选"
 
+
+    # 滑动
+    def test_scroll(self):
+        # 获取窗口大小，返回一个字典{'width': 1080, 'height': 1920}
+        size=self.driver.get_window_size()
+        # 长按滑动释放
+        TouchAction(self.driver).long_press(x=size['width']*0.5,y=size['height']*0.8)\
+        .move_to(x=size['width']*0.5,y=size['height']*0.2)\
+        .release()\
+        .perform()
+
     def teardown(self):
         self.driver.quit()
+
