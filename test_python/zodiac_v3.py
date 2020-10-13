@@ -21,6 +21,7 @@ for i in zodiac_name:
     z_num[i]=0
 print(z_num)
 
+# 可以多次输入
 while True:
     # 用户输入
     yesr=int(input('请输入一个年份：'))
